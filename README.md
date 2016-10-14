@@ -29,8 +29,9 @@ digdag run test.dig -a -p accese_token=YOUR_LINES_ACCESE_TOKEN
 
 or,
 
-When you do not want to use the -p option at the run, you exclude the following comment out, and please rewrite the your token on test.dig.
-#  accese_token: "YOUR_LINES_ACCESE_TOKEN"
+When you do not want to use the -p option at the run, you exclude the following comment out, and please rewrite the your token on the test.dig file.
+`#  accese_token: "YOUR_LINES_ACCESE_TOKEN"`
+
 ```
 digdag run test.dig -a
 ```
