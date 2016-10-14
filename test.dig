@@ -1,0 +1,30 @@
+timezone: Asia/Tokyo
+
+_export:
+# When you do not want to use the -p option at the run, you exclude the following comment out, and please rewrite the your token
+#  accese_token: "YOUR LINE'S ACCESE TOKEN"
+  workflow_name: "test"
+  start_msg:     "digdag ${workflow_name} start"
+  end_msg:       "digdag ${workflow_name} finish"
+  error_msg:     "digdag ${workflow_name} error"
+
++strat:
+  sh>: tasks/line_notify.sh ${accese_token} "${moment().format("YYYY-MM-DD HH:mm:ss Z")}:${start_msg}"
+
++repeat:
+  for_each>:
+    order: [1st, 2nd, 3rd, 4th, 5th]
+    animal: [dog, cat, mouse]
+  _do:
+    echo>: ${order} ${animal}
+  _parallel: true
+
+# This is for _error confirmation.
+#+fail:
+#  fail>: "fail!"
+
++end:
+  sh>: tasks/line_notify.sh ${accese_token} "${moment().format("YYYY-MM-DD HH:mm:ss Z")}:${end_msg}"
+
+_error:
+  sh>: tasks/line_notify.sh ${accese_token} "${moment().format("YYYY-MM-DD HH:mm:ss Z")}:${error_msg}"
