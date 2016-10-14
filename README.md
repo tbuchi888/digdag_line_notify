@@ -1,6 +1,6 @@
 # digdag_line_notify
 ## 0.Summary
-This is Sample codes of Digdag + LINE Notyfy.
+This is Sample codes of Digdag + LINE Notify.
 
 Please refer to this : LINE Engineers' Blog [コマンドラインから LINE にメッセージを送れる LINE Notify](http://developers.linecorp.com/blog/ja/?p=3784)
 
